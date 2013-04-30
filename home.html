@@ -1,0 +1,96 @@
+<html>
+    <head>
+      <title>HTML 5 Animated Text</title>
+      <link rel="stylesheet" href="flash_card.css" />
+      <script src="lib/jquery.2.0.js"></script>
+      <script src="lib/underscore.js"></script>
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script type="text/javascript" src="flash_card.js"></script>
+      <script type="text/javascript">
+          var context;
+          var text = "";
+          var textDirection = "";
+          var deck, cards;
+
+          $(function() {
+              var rootWord = "At";
+              var words = ["Cat", "Hat", "Mat", "Sat", "Pat"];
+              deck = new Deck();
+              cards = deck.loadDeck(rootWord, words);
+          }());
+      </script>
+  </head>
+  
+  <body>
+  
+  <div id="home_screen">
+    <h1>Welcome to Audio Education</h1>
+    <div id="shout">Shout</div>
+    <div id="word_zap"></div>
+  </div>
+  
+  <div id="div_start">
+    <button id="start_button" onclick="startButton(event)"><img alt="Start" id="start_img"  src="images/mic.gif"></button>
+      </div>
+  <div id="container"></div>
+      <div id="page">
+          
+      <div class="compact marquee">
+      <div id="info">
+        <p id="info_start">
+          Click on the microphone icon and begin speaking for as long as you like.
+        </p>
+        <p id="info_speak_now" style="display:none">
+          Speak now.
+        </p>
+        <p id="info_no_speech" style="display:none">
+          No speech was detected. You may need to adjust your <a href=
+          "//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">microphone
+          settings</a>.
+        </p>
+        <p id="info_no_microphone" style="display:none">
+          No microphone was found. Ensure that a microphone is installed and that
+          <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+          microphone settings</a> are configured correctly.
+        </p>
+        <p id="info_allow" style="display:none">
+          Click the "Allow" button above to enable your microphone.
+        </p>
+        <p id="info_denied" style="display:none">
+          Permission to use microphone was denied.
+        </p>
+        <p id="info_blocked" style="display:none">
+          Permission to use microphone is blocked. To change, go to
+          chrome://settings/contentExceptions#media-stream
+        </p>
+        <p id="info_upgrade" style="display:none">
+          Web Speech API is not supported by this browser. Upgrade to <a href=
+          "//www.google.com/chrome">Chrome</a> version 25 or later.
+        </p>
+      </div>
+      
+      <div id="results">
+          
+          
+        <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
+      </div>
+      
+      <div class="compact marquee" id="div_language">
+          <select id="select_language" onchange="updateCountry()"></select>
+          <select id="select_dialect"></select>
+      </div>
+      </div>
+      <script src="lib/kinetic-v4.4.3.js"></script>
+      
+      <!-- Effects -->
+      <script src="particles.js"></script>
+      
+      <script src="card_animation.js"></script>
+      <script src="word_controller.js"></script>
+      <script src="card_reader.js"></script>  
+      <script src="smiley_face.js"></script>
+      <script src="effects.js"></script>
+      
+      <script src="events.js"></script>
+  </body>
+</html>
